@@ -31,7 +31,7 @@ export class SoundManager {
 
   private loadOne(name: string): Promise<void> {
     return new Promise(resolve => {
-      const el = new Audio(`/${name}.wav`);
+      const el = new Audio(`${import.meta.env.BASE_URL}${name}.wav`);
       el.volume = 0.10;
       el.preload = 'auto';
       el.oncanplaythrough = () => resolve();

@@ -239,7 +239,7 @@ function buildInstructions(): void {
     const descCell = h('div', { class: 'instr-desc' });
     if (icon) {
       const iconEl = document.createElement('img');
-      iconEl.src = `/${icon}.gif`;
+      iconEl.src = `${import.meta.env.BASE_URL}${icon}.gif`;
       iconEl.alt = '';
       iconEl.className = 'instr-icon';
       const mainLine = h('div', { class: 'instr-main-line' });

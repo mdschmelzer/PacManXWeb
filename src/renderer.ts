@@ -34,7 +34,7 @@ function loadImage(name: string, ext = 'gif'): Promise<[string, HTMLImageElement
     const img = new Image();
     img.onload = () => resolve([name, img]);
     img.onerror = () => resolve([name, img]); // missing = empty; don't block
-    img.src = `/${name}.${ext}`;
+    img.src = `${import.meta.env.BASE_URL}${name}.${ext}`;
   });
 }
 
