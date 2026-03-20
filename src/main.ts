@@ -312,6 +312,15 @@ function buildHiScoreEntry(): void {
 // Init
 // ---------------------------------------------------------------------------
 
+const volumeSlider = document.getElementById('volume-slider') as HTMLInputElement;
+const volumeIcon   = document.getElementById('volume-icon')!;
+
+volumeSlider.addEventListener('input', () => {
+  const v = parseInt(volumeSlider.value) / 100;
+  sound.setAllVolumes(v);
+  volumeIcon.innerHTML = v === 0 ? '&#128263;' : v < 0.5 ? '&#128264;' : '&#128266;';
+});
+
 async function init(): Promise<void> {
   // Load assets in parallel
   await Promise.allSettled([sound.load(), renderer.load()]);

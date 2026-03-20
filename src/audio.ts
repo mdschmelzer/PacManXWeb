@@ -8,6 +8,7 @@
  */
 export class SoundManager {
   private sounds = new Map<string, HTMLAudioElement>();
+  volume = 0.30;
 
   /** Pre-load all game sounds. Returns a promise that resolves when done (or on error). */
   async load(): Promise<void> {
@@ -32,7 +33,7 @@ export class SoundManager {
   private loadOne(name: string): Promise<void> {
     return new Promise(resolve => {
       const el = new Audio(`${import.meta.env.BASE_URL}${name}.wav`);
-      el.volume = 0.10;
+      el.volume = this.volume;
       el.preload = 'auto';
       el.oncanplaythrough = () => resolve();
       el.onerror = () => resolve(); // don't block on missing audio
@@ -106,5 +107,10 @@ export class SoundManager {
     const el = this.sounds.get(name);
     if (!el) return;
     el.volume = Math.max(0, Math.min(1, volume));
+  }
+
+  setAllVolumes(volume: number): void {
+    this.volume = Math.max(0, Math.min(1, volume));
+    for (const el of this.sounds.values()) el.volume = this.volume;
   }
 }

@@ -16,6 +16,12 @@
   <!-- Game canvas (shown during gameplay) -->
   <canvas id="game" style="display:none;"></canvas>
 
+  <!-- Volume control — fixed bottom-left, always visible -->
+  <div id="volume-control">
+    <span id="volume-icon">&#128264;</span>
+    <input id="volume-slider" type="range" min="0" max="100" value="30" step="1" aria-label="Volume" />
+  </div>
+
   <script type="module" src="/src/main.ts"></script>
 </body>
 </html>
