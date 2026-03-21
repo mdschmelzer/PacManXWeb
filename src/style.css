@@ -13,26 +13,26 @@ body {
 
 #volume-control {
   position: fixed;
-  bottom: 12px;
+  top: 12px;
   left: 12px;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 12px;
   z-index: 100;
 }
 
 #volume-icon {
-  font-size: 1rem;
+  font-size: 2rem;
   line-height: 1;
 }
 
 #volume-slider {
   -webkit-appearance: none;
   appearance: none;
-  width: 80px;
-  height: 4px;
+  width: 160px;
+  height: 8px;
   background: #444;
-  border-radius: 2px;
+  border-radius: 4px;
   outline: none;
   cursor: pointer;
   user-select: none;
@@ -42,16 +42,16 @@ body {
 #volume-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 12px;
-  height: 12px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   background: #ffe44d;
   cursor: pointer;
 }
 
 #volume-slider::-moz-range-thumb {
-  width: 12px;
-  height: 12px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   background: #ffe44d;
   cursor: pointer;
