@@ -527,7 +527,7 @@ export class Game {
     }
 
     this.renderer.draw(this);
-    this.rafId = requestAnimationFrame(this.loop);
+    if (this.gameStarted) this.rafId = requestAnimationFrame(this.loop);
   };
 
   // ---------------------------------------------------------------------------
