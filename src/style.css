@@ -245,6 +245,7 @@ input[type="text"] {
   -webkit-user-select: text;
 }
 input[type="text"]:focus { outline: none; border-color: #ffe44d; }
+input[type="text"]::placeholder { color: #555; letter-spacing: 4px; }
 
 .form-row {
   display: flex;

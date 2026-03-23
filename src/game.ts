@@ -190,7 +190,9 @@ export class Game {
   }
 
   saveHiScores(): void {
-    localStorage.setItem('pacmanx_hiscores', JSON.stringify(this.hiScores));
+    try {
+      localStorage.setItem('pacmanx_hiscores', JSON.stringify(this.hiScores));
+    } catch { /* ignore — private browsing or quota exceeded */ }
   }
 
   /** Insert a new score if it qualifies. Returns true if inserted. */
@@ -1124,7 +1126,6 @@ export class Game {
     if (this.gEaten[i]) {
       // Flashing logic: certain cooldown values show lightblue, others show eyes
       const cd = this.gEatenCooldown[i];
-      const full = Math.round(10 * T500_PER_SEC);
       const showEyes = cd > Math.round(5 * T500_PER_SEC) ||
         cd === Math.round(4 * T500_PER_SEC) ||
         cd === Math.round(2.5 * T500_PER_SEC) ||
