@@ -58,6 +58,17 @@ game.on((_event, screen) => renderScreen(screen));
 // Keyboard routing
 // ---------------------------------------------------------------------------
 
+function autoPause(): void {
+  const s = game.screen;
+  if (s !== 'arcade_game' && s !== 'quick_game') return;
+  if (game.gameOver || game.paused) return;
+  game.paused = true;
+  game.sound.pauseAll();
+}
+
+document.addEventListener('visibilitychange', () => { if (document.hidden) autoPause(); });
+window.addEventListener('blur', () => autoPause());
+
 document.addEventListener('keydown', e => {
   const screen = game.screen;
 
